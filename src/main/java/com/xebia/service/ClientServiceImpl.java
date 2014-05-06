@@ -20,6 +20,6 @@ public class ClientServiceImpl implements ClientService {
     @Override
     @Transactional
     public Client save(Client client) {
-        return null;
+        return clientRepository.save(client);
     }
 }
