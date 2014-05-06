@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @Service
 public class ClientService {
@@ -19,6 +20,11 @@ public class ClientService {
     @Inject
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Client> findAll() {
+        return clientRepository.findAll();
     }
 
     @Transactional

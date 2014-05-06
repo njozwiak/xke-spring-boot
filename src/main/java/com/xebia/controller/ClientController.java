@@ -12,7 +12,6 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -30,11 +29,7 @@ public class ClientController {
 
     @RequestMapping(value = "/clients", method = GET)
     public List<Client> allClients() {
-        Client client1 = new Client(idGenerator.incrementAndGet(), "client1");
-        Client client2 = new Client(idGenerator.incrementAndGet(), "client2");
-        Client client3 = new Client(idGenerator.incrementAndGet(), "client3");
-
-        return newArrayList(client1, client2, client3);
+        return clientService.findAll();
     }
 
     @RequestMapping(value = "/client", method = GET)
