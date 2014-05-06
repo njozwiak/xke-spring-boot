@@ -1,6 +1,5 @@
 package com.xebia.controller;
 
-import com.xebia.controller.ClientController;
 import com.xebia.domain.Client;
 import com.xebia.service.ClientService;
 import org.junit.Before;
