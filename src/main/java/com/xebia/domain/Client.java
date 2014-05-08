@@ -1,10 +1,10 @@
 package com.xebia.domain;
 
-import com.sun.istack.internal.NotNull;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
