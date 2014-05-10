@@ -1,2 +1,25 @@
 app :
     environment : production
+
+#
+# TODO : Changer le port du server
+#
+server :
+  port : 8081
+
+#
+# TODO : Configurer la datasource pour utiliser hsqldb
+#
+spring.datasource :
+  url : jdbc:hsqldb:mem:xebia-boot
+  driverClassName : org.hsqldb.jdbcDriver
+  username : sa
+  password :
+
+#
+# Enable remote shell
+#
+shell.auth.simple :
+      user :
+       name : xebia
+       password : pass
