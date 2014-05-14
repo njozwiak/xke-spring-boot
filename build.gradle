@@ -38,7 +38,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 
-    compile("com.fasterxml.jackson.core:jackson-databind")
     compile("com.google.guava:guava:17.0-rc2")
     compile("org.hibernate:hibernate-validator")
     compile("javax.inject:javax.inject:1")
