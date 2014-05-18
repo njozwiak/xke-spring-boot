@@ -16,7 +16,6 @@ public class Client {
     private Long id;
 
     @NotNull
-    @Column
     @Size(max = 100)
     private String name;
 
