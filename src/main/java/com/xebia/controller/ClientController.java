@@ -1,6 +1,7 @@
 package com.xebia.controller;
 
 import com.xebia.domain.Client;
+import com.xebia.domain.ClientList;
 import com.xebia.service.ClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -32,13 +33,13 @@ public class ClientController {
         return "Hello xebian";
     }
 
-    @RequestMapping(value = "/clients", method = GET)
-    public ResponseEntity<List<Client>> allClients() {
+    @RequestMapping(value = "/clients", method = GET, produces = { "application/json", "application/xml" })
+    public ResponseEntity<ClientList> allClients() {
         List<Client> clients = clientService.findAll();
         if(clients.isEmpty()){
             return new ResponseEntity<>(NO_CONTENT);
         }else{
-            return new ResponseEntity<>(clients,OK);
+            return new ResponseEntity<>(new ClientList(clients),OK);
         }
     }
 
@@ -48,7 +49,7 @@ public class ClientController {
       return model;
     }
 
-    @RequestMapping(value = "/client", method = GET)
+    @RequestMapping(value = "/client", method = GET, produces = { "application/json", "application/xml" })
     public Client client(@RequestParam(value = "name") String name) {
         return new Client(idGenerator.incrementAndGet(), name);
     }
