@@ -17,11 +17,11 @@ app :
 #
 # TODO : Configurer la datasource pour utiliser hsqldb
 #
-spring.datasource :
-  url : jdbc:hsqldb:file:db/xebia-boot
-  driverClassName : org.hsqldb.jdbcDriver
-  username : sa
-  password :
+#spring.datasource :
+#  url : jdbc:hsqldb:file:db/xebia-boot
+#  driverClassName : org.hsqldb.jdbcDriver
+#  username : sa
+#  password :
 
 ##
 ## TODO : Enable spring security
