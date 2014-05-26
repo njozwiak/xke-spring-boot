@@ -75,13 +75,18 @@ Utiliser le service ClientService
 - Relancer l'application
 - Spring boot scanne automatiquement les fichiers sql de répertoire resources et initialise les données
 
-# Etape 4 : Gestion de la configuration
+# Etape 3 : Gestion de la configuration
 
-## 4.1 Changer le port du serveur en ligne de commande
-## 4.2 Ajouter les ConfigurationProperties
+## 3.1 Changer le port du serveur en ligne de commande
+- Utiliser la propriété ```server.port```
+## 3.2 Définir un nouvel emplacement pour le fichier de configuration
+- Utiliser la propriété ```spring.config.location```
+## 3.3 Définir un nouvel emplacement pour le fichier de log
+- [Surcharger](http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-custom-log-configuration) le fichier logback.xml
+## 3.4 Ajouter les ConfigurationProperties
 
 - Créer le **Component** ```ClientProperties``` qui est un **ConfigurationProperties**
-- Ajouter la propriété suivante sous app :
+- Dans le fichier application.yml, ajouter la propriété suivante sous app :
  ```
     client :
        orderByName : true
@@ -90,3 +95,14 @@ Utiliser le service ClientService
 - Ajouter l'attribut Boolean ```orderByName``` ainsi que le getter/setter
 - Injecter la classe ```ClientProperties``` dans le ```ClientService```
 - Ajouter une condition dans la méthode ```findAll()``` pour trier les clients par nom (ordre croissant) lorsque la propriété ```orderByName``` est true
+
+# Etape 4 : Actuator
+
+## 4.1 Examiner l'état de l'application
+- Ajouter la dépendance ```spring-boot-starter-actuator```
+- Afficher les variables surchargées
+- Faire un thread dump de l'application
+- Afficher les metrics
+- Tracer les requêtes HTTP
+
+# Etape 5 : Security
