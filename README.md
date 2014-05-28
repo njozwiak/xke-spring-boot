@@ -27,13 +27,18 @@ Dans le package de base créer la classe principale Application
 - Déclarer la classe comme une **Configuration**
 - Activer le **ComponentScan**
 - Activer l'**AutoConfiguration**
-- **Importer** cette classe dans la classe Application
+- **Importer** cette classe dans la classe ```Application```
 
 ## 1.4 Classe com.xebia.xkboot.controller.ClientController
 
 - Déclarer cette classe en **RestController**
 
-## 1.5 Démarrer l'application en utilisant les plugins:
+
+## 1.5 Modifier la classe ClientController.java
+
+Utiliser le service ```ClientService```
+
+## 1.6 Démarrer l'application en utilisant les plugins:
 
 graddle :
 ```
@@ -57,23 +62,31 @@ java -jar target/xke-spring-boot-0.1.0.jar
 
 Aller sur la page http://localhost:8080/, l'application spring-boot fonctionne
 
-Tester la page inexistante http://localhost:8080/peek-a-boo
-
-## 1.2 Modifier la classe ClientController.java
-
-Utiliser le service ClientService
-
 
 # Etape 2 : Data
 
 ## 2.1 Création du ClientRepository
 
-- Ajouter la dépendance ```spring-boot-starter-data-jpa```
 - Créer la classe ```ClientRepository``` qui étend ```JpaRepository<Client, String>```
 - Par défaut, Spring boot fournit un hsqldb in memory
+- Configurer une database avec un fichier dans le ```application.yml```:
+```
+spring.datasource :
+  url : jdbc:hsqldb:file:db/xebia-boot
+  driverClassName : org.hsqldb.jdbcDriver
+  username : sa
+  password :
+```
+- Ajouter le fichier data.sql avec les données suivantes :
+```
+INSERT INTO Client (id,name) VALUES (1,'Bruce Wayne');
+INSERT INTO Client (id,name) VALUES (2,'Oliver Green');
+INSERT INTO Client (id,name) VALUES (3,'Clark Kent');
+```
+- Ajouter la dépendance ```org.hsqldb:hsqldb```
 - Ajouter le repository dans la classe ```ClientService``` et modifier la méthode ```findAll()```
 - Relancer l'application
-- Spring boot scanne automatiquement les fichiers sql de répertoire resources et initialise les données
+- Spring boot scanne automatiquement les fichiers sql du répertoire ```resources``` et initialise les données
 
 # Etape 3 : Gestion de la configuration
 
@@ -83,8 +96,9 @@ Utiliser le service ClientService
 - Utiliser la propriété ```spring.config.location```
 ## 3.3 Définir un nouvel emplacement pour le fichier de log
 - [Surcharger](http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-custom-log-configuration) le fichier logback.xml
-## 3.4 Ajouter les ConfigurationProperties
-
+## 3.4 Ajouter une propriété
+- Dans la classe ```ClientService```, injecter la propriété ```app.environment``` avec ```@Value```
+## 3.5 Ajouter les ConfigurationProperties
 - Créer le **Component** ```ClientProperties``` qui est un **ConfigurationProperties**
 - Dans le fichier application.yml, ajouter la propriété suivante sous app :
  ```
@@ -98,11 +112,17 @@ Utiliser le service ClientService
 
 # Etape 4 : Actuator
 
-## 4.1 Examiner l'état de l'application
-- Ajouter la dépendance ```spring-boot-starter-actuator```
+## 4.1 Changer le port pour accéder aux endpoints
+- Examiner la classe ```ManagementServerProperties``` pour voir la propriété à surcharger. Le format est le suivant : prefix.attribut
+## 4.2 Examiner l'état de l'application
+- Tester la page inexistante http://localhost:8080/peek-a-boo
 - Afficher les variables surchargées
 - Faire un thread dump de l'application
 - Afficher les metrics
 - Tracer les requêtes HTTP
 
 # Etape 5 : Security
+## 5.1 Configuration
+- Ajouter la dépendance ```spring-boot-starter-security```
+- Surcharger dans le fichier application.yml le user par défaut (name = xebia, password = xebia et role = USER et ADMIN). Examiner la classe ```SecurityProperties```.
+- Relancer l'application
