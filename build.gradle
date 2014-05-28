@@ -41,7 +41,6 @@ dependencies {
     compile("com.google.guava:guava:17.0-rc2")
     compile("org.hibernate:hibernate-validator")
     compile("javax.inject:javax.inject:1")
-    runtime("org.yaml:snakeyaml")
     runtime("org.hsqldb:hsqldb")
     testCompile("org.assertj:assertj-core:1.5.0")
 }
