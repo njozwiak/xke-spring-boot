@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -56,7 +55,7 @@ public class ClientController {
 
     @RequestMapping(value = "/client", method = POST)
     @ResponseStatus(CREATED)
-    public Client createClient(@RequestBody @Valid final Client client) {
+    public Client createClient(@RequestBody final Client client) {
         return clientService.save(client);
     }
 }
