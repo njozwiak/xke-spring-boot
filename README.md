@@ -124,5 +124,5 @@ INSERT INTO Client (id,name) VALUES (3,'Clark Kent');
 # Etape 5 : Security
 ## 5.1 Configuration
 - Ajouter la dépendance ```spring-boot-starter-security```
-- Surcharger dans le fichier application.yml le user par défaut (name = xebia, password = xebia et role = USER et ADMIN). Examiner la classe ```SecurityProperties```.
+- Surcharger dans le fichier ```application.yml``` le user par défaut ```(name = xebia, password = xebia et role = USER et ADMIN)```. Examiner la classe ```SecurityProperties``` pour vous aider.
 - Relancer l'application
