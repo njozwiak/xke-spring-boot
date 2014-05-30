@@ -1,39 +1,21 @@
-#
-# TODO [CONF.1] : Changer le port du server avec le fichier de conf
-#
-#server.port : 8081
+server.port : 8081
 
-#
-# TODO [CONF.3] : injecter la valeur app.enviromnent en utilisant @Value
-#
 app :
   environment : production
-  #
-  # TODO [CONF.2] : utiliser les @ConfigurationProperties pour gérer les configuration du service
-  #
   client :
     orderByName : true
 
-#
-# TODO : Configurer la datasource pour utiliser hsqldb
-#
-#spring.datasource :
-#  url : jdbc:hsqldb:file:db/xebia-boot
-#  driverClassName : org.hsqldb.jdbcDriver
-#  username : sa
-#  password :
+spring.datasource :
+  url : jdbc:hsqldb:file:db/xebia-boot
+  driverClassName : org.hsqldb.jdbcDriver
+  username : sa
+  password :
 
-##
-## TODO : Enable spring security
-##
-#security :
-#  user :
-#    name : xebia
-#    password : xebia
-#    role : USER,ADMIN
+security :
+  user :
+    name : xebia
+    password : xebia
+    role : USER,ADMIN
 
-#
-# TODO : Changer le port des endpoints actuator
-#
 management.port : 8787
 

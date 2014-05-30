@@ -16,11 +16,9 @@ public class ClientService {
 
     private ClientRepository clientRepository;
 
-    // TODO CONF-a : injecter la valeur app.enviromnent en utilisant @Value
     @Value("${app.environment}")
     private String environment;
 
-    // TODO CONF-b : utiliser les @ConfigurationProperties pour gérer les configuration du service
     @Inject
     ClientProperties properties;
 
