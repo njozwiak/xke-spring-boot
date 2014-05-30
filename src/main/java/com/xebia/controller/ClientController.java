@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -15,16 +16,16 @@ import static org.springframework.http.HttpStatus.*;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-@RestController
+// TODO 1.4 : Déclarer cette classe en RestController
 public class ClientController {
 
     private final AtomicLong idGenerator = new AtomicLong();
 
-    private final ClientService clientService;
+    // TODO 1.5 : Injecter le ClientService
 
     @Inject
-    public ClientController(final ClientService clientService) {
-        this.clientService = clientService;
+    public ClientController() {
+
     }
 
     @RequestMapping(value = "/" ,method = GET)
@@ -34,7 +35,10 @@ public class ClientController {
 
     @RequestMapping(value = "/clients", method = GET, produces = { "application/json", "application/xml" })
     public ResponseEntity<ClientList> allClients() {
-        List<Client> clients = clientService.findAll();
+        // TODO 1.5 : Utiliser le service ClientService.findAll()
+
+        List<Client> clients = getClients();
+
         if(clients.isEmpty()){
             return new ResponseEntity<>(NO_CONTENT);
         }else{
@@ -44,8 +48,18 @@ public class ClientController {
 
     @RequestMapping(value="/client.html", method = RequestMethod.GET)
     public Model getListClients(Model model) {
-      model.addAttribute("clients", clientService.findAll());
+      // TODO 1.5 : Utiliser le service ClientService.findAll()
+
+      model.addAttribute("clients", getClients());
       return model;
+    }
+
+    private List<Client> getClients() {
+        List<Client> clients = new ArrayList<>();
+        clients.add(new Client(1L, "Federer"));
+        clients.add(new Client(2L, "Nadal"));
+        clients.add(new Client(3L, "Tsonga"));
+        return clients;
     }
 
     @RequestMapping(value = "/client", method = GET, produces = { "application/json", "application/xml" })
@@ -56,6 +70,8 @@ public class ClientController {
     @RequestMapping(value = "/client", method = POST)
     @ResponseStatus(CREATED)
     public Client createClient(@RequestBody final Client client) {
-        return clientService.save(client);
+        // TODO 1.5 : Utiliser le service ClientService.save
+
+        return null;
     }
 }

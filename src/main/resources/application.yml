@@ -15,7 +15,7 @@ app :
     orderByName : true
 
 #
-# TODO : Configurer la datasource pour utiliser hsqldb
+# TODO 2.1 : Configurer la datasource pour utiliser hsqldb
 #
 #spring.datasource :
 #  url : jdbc:hsqldb:file:db/xebia-boot
