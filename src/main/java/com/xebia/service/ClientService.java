@@ -1,9 +1,6 @@
 package com.xebia.service;
 
 import com.xebia.domain.Client;
-import com.xebia.properties.ClientProperties;
-import com.xebia.repository.ClientRepository;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,22 +12,23 @@ public class ClientService {
 
     // TODO 2.1 : Injecter ClientRepository
 
-    // TODO CONF-a : injecter la valeur app.enviromnent en utilisant @Value
-    @Value("${app.environment}")
+    // TODO 3.4 : injecter la valeur app.enviromnent en utilisant @Value
     private String environment;
 
-    // TODO CONF-b : utiliser les @ConfigurationProperties pour gérer les configuration du service
-    @Inject
-    ClientProperties properties;
+    // TODO 3.5 : utiliser les @ConfigurationProperties pour gérer les configuration du service
+    // TODO 3.5 : Injecter ClientProperties
 
     // TODO 2.1 : Injecter ClientRepository
+
     @Inject
-    public ClientService(ClientRepository clientRepository) {
+    public ClientService() {
     }
 
     @Transactional(readOnly = true)
     public List<Client> findAll() {
         // TODO 2.1 : Utiliser ClientRepository.findAll()
+        // TODO 3.5 : Ajouter une condition avec la classe ClientProperties pour trier les clients par nom (ordre croissant) lorsque
+        // TODO       la propriété orderByName est true
         return null;
     }
 

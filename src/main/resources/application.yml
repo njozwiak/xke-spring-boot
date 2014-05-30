@@ -1,18 +1,18 @@
 #
-# TODO [CONF.1] : Changer le port du server avec le fichier de conf
+# TODO 3.1 : Utiliser cette propriété pour changer le port du serveur en ligne de commande
 #
 #server.port : 8081
 
 #
-# TODO [CONF.3] : injecter la valeur app.enviromnent en utilisant @Value
+# TODO 3.4 : injecter la valeur app.enviromnent dans ClientService en utilisant @Value
 #
 app :
   environment : production
   #
-  # TODO [CONF.2] : utiliser les @ConfigurationProperties pour gérer les configuration du service
+  # TODO 3.5 : utiliser les @ConfigurationProperties pour gérer les configuration du service
   #
-  client :
-    orderByName : true
+  #client :
+    #orderByName : true
 
 #
 # TODO 2.1 : Configurer la datasource pour utiliser hsqldb
@@ -23,17 +23,9 @@ app :
 #  username : sa
 #  password :
 
-##
-## TODO : Enable spring security
-##
-#security :
-#  user :
-#    name : xebia
-#    password : xebia
-#    role : USER,ADMIN
+#
+# TODO 5.1 : Enable spring security
 
 #
-# TODO : Changer le port des endpoints actuator
-#
-management.port : 8787
+# TODO 4.1 : Changer le port des endpoints actuator
 

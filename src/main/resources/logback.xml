@@ -2,8 +2,6 @@
 <configuration scan="true" scanPeriod="10 seconds">
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <!--
-    TODO Changer le niveau de log par défaut à warn
+        TODO 3.3 Définir un nouvel emplacement pour le fichier de log
     -->
-    <logger name="org.springframework" level="WARN"/>
-    <logger name="org.hibernate" level="WARN"/>
 </configuration>
