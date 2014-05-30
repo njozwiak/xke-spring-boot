@@ -2,7 +2,6 @@ package com.xebia.controller;
 
 import com.xebia.domain.Client;
 import com.xebia.domain.ClientList;
-import com.xebia.service.ClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +32,7 @@ public class ClientController {
         return "Hello xebian";
     }
 
-    @RequestMapping(value = "/clients", method = GET, produces = { "application/json", "application/xml" })
+    @RequestMapping(value = "/clients", method = GET)
     public ResponseEntity<ClientList> allClients() {
         // TODO 1.5 : Utiliser le service ClientService.findAll()
 
@@ -62,7 +61,7 @@ public class ClientController {
         return clients;
     }
 
-    @RequestMapping(value = "/client", method = GET, produces = { "application/json", "application/xml" })
+    @RequestMapping(value = "/client", method = GET)
     public Client client(@RequestParam(value = "name") String name) {
         return new Client(idGenerator.incrementAndGet(), name);
     }
