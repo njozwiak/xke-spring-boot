@@ -4,6 +4,7 @@ XKE spring-boot
 # Etape 1 : Créer une application spring boot du néant
 
 ## 1.1 Créer le fichier de build
+
 Créer un fichier de configuration sur http://start.spring.io/ (gradde ou maven) et le copier à la racine du projet.
 Sélectionner les starters
 - Actuator
@@ -15,6 +16,7 @@ Sélectionner les starters
 >elle permet cependant de démarrer rapidement.
 
 ## 1.2 Classe com.xebia.xkboot.Application
+
 Dans le package de base créer la classe principale Application
 ```
     public static void main(String[] args) {
@@ -91,14 +93,23 @@ INSERT INTO Client (id,name) VALUES (3,'Clark Kent');
 # Etape 3 : Gestion de la configuration
 
 ## 3.1 Changer le port du serveur en ligne de commande
+
 - Utiliser la propriété ```server.port```
+
 ## 3.2 Définir un nouvel emplacement pour le fichier de configuration
+
 - Utiliser la propriété ```spring.config.location```
+
 ## 3.3 Définir un nouvel emplacement pour le fichier de log
+
 - [Surcharger](http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-custom-log-configuration) le fichier logback.xml
+
 ## 3.4 Ajouter une propriété
+
 - Dans la classe ```ClientService```, injecter la propriété ```app.environment``` avec ```@Value```
+
 ## 3.5 Ajouter les ConfigurationProperties
+
 - Créer le **Component** ```ClientProperties``` qui est un **ConfigurationProperties**
 - Dans le fichier application.yml, ajouter la propriété suivante sous app :
  ```
@@ -113,8 +124,11 @@ INSERT INTO Client (id,name) VALUES (3,'Clark Kent');
 # Etape 4 : Actuator
 
 ## 4.1 Changer le port pour accéder aux endpoints
+
 - Examiner la classe ```ManagementServerProperties``` pour voir la propriété à surcharger. Le format est le suivant : prefix.attribut
+
 ## 4.2 Examiner l'état de l'application
+
 - Tester la page inexistante http://localhost:8080/peek-a-boo
 - Afficher les variables surchargées
 - Faire un thread dump de l'application
@@ -122,7 +136,9 @@ INSERT INTO Client (id,name) VALUES (3,'Clark Kent');
 - Tracer les requêtes HTTP
 
 # Etape 5 : Security
+
 ## 5.1 Configuration
+
 - Ajouter la dépendance ```spring-boot-starter-security```
 - Surcharger dans le fichier ```application.yml``` le user par défaut ```(name = xebia, password = xebia et role = USER et ADMIN)```. Examiner la classe ```SecurityProperties``` pour vous aider.
 - Relancer l'application
