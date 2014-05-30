@@ -32,9 +32,10 @@ public class ClientController {
         return "Hello xebian";
     }
 
-    @RequestMapping(value = "/clients", method = GET, produces = { "application/json", "application/xml" })
+    @RequestMapping(value = "/clients", method = GET)
     public ResponseEntity<ClientList> allClients() {
         List<Client> clients = clientService.findAll();
+        clients.add(new Client(1L, "Nico"));
         if(clients.isEmpty()){
             return new ResponseEntity<>(NO_CONTENT);
         }else{
@@ -48,7 +49,7 @@ public class ClientController {
       return model;
     }
 
-    @RequestMapping(value = "/client", method = GET, produces = { "application/json", "application/xml" })
+    @RequestMapping(value = "/client", method = GET)
     public Client client(@RequestParam(value = "name") String name) {
         return new Client(idGenerator.incrementAndGet(), name);
     }
