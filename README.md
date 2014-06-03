@@ -38,11 +38,11 @@ Dans le package de base créer la classe principale Application
 
 ## 1.5 Modifier la classe ClientController.java
 
-Utiliser le service ```ClientService```
+- Utiliser le service ```ClientService``` à la place de la méthode getClients()
 
 ## 1.6 Démarrer l'application en utilisant les plugins:
 
-graddle :
+gradle :
 ```
 ./gradlew bootRun
 ```
@@ -125,7 +125,8 @@ INSERT INTO Client (id,name) VALUES (3,'Clark Kent');
 
 ## 4.1 Changer le port pour accéder aux endpoints
 
-- Examiner la classe ```ManagementServerProperties``` pour voir la propriété à surcharger. Le format est le suivant : prefix.attribut
+- Examiner la classe ```ManagementServerProperties``` pour voir la propriété à surcharger dans le fichier ```application.yml```.
+  Le format est le suivant : prefix.attribut
 
 ## 4.2 Examiner l'état de l'application
 

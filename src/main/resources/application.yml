@@ -24,7 +24,7 @@ app :
 #  password :
 
 #
-# TODO 5.1 : Enable spring security
+# TODO 5.1 : Activer spring security
 
 #
 # TODO 4.1 : Changer le port des endpoints actuator
