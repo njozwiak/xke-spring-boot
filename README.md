@@ -70,7 +70,7 @@ Aller sur la page http://localhost:8080/, l'application spring-boot fonctionne
 
 ## 2.1 Création du ClientRepository
 
-- Créer la classe ```ClientRepository``` qui étend ```JpaRepository<Client, String>```
+- Créer l'interface ```ClientRepository``` qui étend ```JpaRepository<Client, String>```
 - Par défaut, Spring boot fournit un hsqldb in memory
 - Configurer une database avec un fichier dans le ```application.yml```:
 ```
