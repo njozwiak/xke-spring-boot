@@ -39,6 +39,7 @@ Dans le package de base créer la classe principale Application
 ## 1.5 Modifier la classe ClientController.java
 
 - Utiliser le service ```ClientService``` à la place de la méthode getClients()
+- Importer les librairies Guava, Inject et Hsqldb
 
 ## 1.6 Démarrer l'application en utilisant les plugins:
 
