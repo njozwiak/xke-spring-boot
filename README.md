@@ -38,17 +38,18 @@ Dans le package de base créer la classe principale Application
 
 ## 1.5 Modifier la classe ClientController.java
 
-Utiliser le service ```ClientService```
+- Utiliser le service ```ClientService``` à la place de la méthode getClients()
+- Importer les librairies Guava, Inject et Hsqldb
 
 ## 1.6 Démarrer l'application en utilisant les plugins:
 
-graddle :
+gradle :
 ```
 ./gradlew bootRun
 ```
 maven :
 ```
-mvn spring:boot
+mvn spring-boot:run
 ```
 
 Compiler et démarrer l'application en standalone
@@ -125,7 +126,8 @@ INSERT INTO Client (id,name) VALUES (3,'Clark Kent');
 
 ## 4.1 Changer le port pour accéder aux endpoints
 
-- Examiner la classe ```ManagementServerProperties``` pour voir la propriété à surcharger. Le format est le suivant : prefix.attribut
+- Examiner la classe ```ManagementServerProperties``` pour voir la propriété à surcharger dans le fichier ```application.yml```.
+  Le format est le suivant : prefix.attribut
 
 ## 4.2 Examiner l'état de l'application
 
