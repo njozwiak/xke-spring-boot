@@ -48,7 +48,7 @@ gradle :
 ```
 maven :
 ```
-mvn spring:boot
+mvn spring-boot:run
 ```
 
 Compiler et démarrer l'application en standalone
